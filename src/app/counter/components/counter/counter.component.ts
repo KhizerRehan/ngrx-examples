@@ -26,7 +26,6 @@ export class CounterComponent implements OnInit {
     this.store.pipe(
       select(fromCounterFeatureSelector.getCounterValue))
       .subscribe((value) => {
-        debugger;
         console.log(value);
       });
 }
