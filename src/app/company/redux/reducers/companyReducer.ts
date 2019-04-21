@@ -17,9 +17,10 @@ export const companyReducer = (state: AppState = InitialCompanyState,  action: f
 
     switch (action.type) {
         case fromCompaniesActions.LOAD_COMPANIES_SUCCESS: {
-            return state = {
-                companies: action.payload
-            };
+            return {
+                ...state,
+                companies:action.payload
+            }
         }
         case fromCompaniesActions.DELETE_COMPANY_SUCCESS: {
             return state = {

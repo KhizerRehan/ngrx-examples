@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
 import { companyReducer } from './redux/reducers/companyReducer';
-import { CompanyListComponent } from './company-list/company-list.component';
-import { CompanyEditComponent } from './company-edit/company-edit.component';
-
+import { CompanyListComponent } from './components/company-list/company-list.component';
+import { CompanyEditComponent } from './components/company-edit/company-edit.component';
+import { CompanyEffectsService } from './redux/@effects/companyEffects.service';
+import { CompanyTableComponent } from './components/company-table/company-table.component';
 
 
 const routes: Routes = [
@@ -16,11 +18,12 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [CompanyListComponent, CompanyEditComponent],
+  declarations: [CompanyListComponent, CompanyEditComponent, CompanyTableComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature('company', companyReducer)
+    StoreModule.forFeature('company', companyReducer),
+    EffectsModule.forFeature([ CompanyEffectsService ])
   ]
 })
 export class CompanyModule { }

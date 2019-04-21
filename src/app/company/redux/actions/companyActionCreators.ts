@@ -4,7 +4,7 @@ import { Company } from '../types/company';
 
 export class LoadCompaniesAction implements Action {
     readonly type = fromCompanyActions.LOAD_COMPANIES;
-
+    
     constructor() { }
 }
 
